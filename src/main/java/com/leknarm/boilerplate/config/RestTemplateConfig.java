@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 
+@Generated
 @Configuration
 @AllArgsConstructor
 public class RestTemplateConfig {

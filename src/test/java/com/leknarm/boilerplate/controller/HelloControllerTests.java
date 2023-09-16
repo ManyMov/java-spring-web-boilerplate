@@ -1,4 +1,4 @@
-package com.leknarm.boilerplate;
+package com.leknarm.boilerplate.controller;
 
 import com.leknarm.boilerplate.controller.HelloController;
 import com.leknarm.boilerplate.model.response.BaseResponse;
@@ -23,6 +23,8 @@ public class HelloControllerTests {
     public void testHelloShouldResponseWithHello() {
         ResponseEntity<BaseResponse<String>> response = helloController.hello();
         assertEquals("hello", Objects.requireNonNull(response.getBody()).getData());
+        assertEquals(200, response.getBody().getCode());
+        assertEquals("success", response.getBody().getMessage());
     }
 
     @Test
@@ -30,6 +32,8 @@ public class HelloControllerTests {
         String name = "boilerplate";
         ResponseEntity<BaseResponse<String>> response = helloController.helloWithName(Map.of("name", name));
         assertEquals(String.format("hello: %s", name), Objects.requireNonNull(response.getBody()).getData());
+        assertEquals(200, response.getBody().getCode());
+        assertEquals("success", response.getBody().getMessage());
     }
 
 }

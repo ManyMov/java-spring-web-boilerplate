@@ -1,4 +1,4 @@
-package com.leknarm.boilerplate;
+package com.leknarm.boilerplate.logging;
 
 import com.leknarm.boilerplate.logging.LoggingClientHttpRequestInterceptor;
 import org.junit.jupiter.api.Test;

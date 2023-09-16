@@ -13,6 +13,7 @@ import org.apache.hc.core5.util.Timeout;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Generated
 @Configuration
 public class HttpClientConfig {
 
