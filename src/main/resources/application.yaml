@@ -1,0 +1,16 @@
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} | %-5level | %X{CORRELATION_ID} | %c{1} | %msg%n"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+  tomcat:
+    threads:
+      max: 200
+
+app:
+  name: Boilerplate
