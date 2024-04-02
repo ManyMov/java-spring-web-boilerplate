@@ -1,6 +1,6 @@
 logging:
   pattern:
-    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} | %-5level | %X{CORRELATION_ID} | %c{1} | %msg%n"
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} | %-5level | %X{traceId}-%X{spanId} | %c{1} | %msg%n"
 
 server:
   port: 8080

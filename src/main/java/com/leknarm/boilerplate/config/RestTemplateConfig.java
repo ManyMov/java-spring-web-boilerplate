@@ -3,6 +3,7 @@ package com.leknarm.boilerplate.config;
 import com.leknarm.boilerplate.logging.LoggingClientHttpRequestInterceptor;
 import lombok.AllArgsConstructor;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
@@ -19,8 +20,8 @@ public class RestTemplateConfig {
     private final CloseableHttpClient httpClient;
 
     @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
+    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(clientHttpRequestFactory()));
         restTemplate.setInterceptors(Collections.singletonList(new LoggingClientHttpRequestInterceptor()));
         return restTemplate;
