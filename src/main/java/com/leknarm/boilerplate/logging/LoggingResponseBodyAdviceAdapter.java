@@ -42,6 +42,7 @@ public class LoggingResponseBodyAdviceAdapter implements ResponseBodyAdvice<Obje
     }
 
     public void logResponse(HttpServletRequest request, HttpServletResponse response, Object body) {
+        log.info("Outgoing response traceparent: {}", request.getHeaders("traceparent"));
         StringBuilder builder = new StringBuilder("Outgoing response: ");
         builder.append(request.getProtocol()).append(" ").append(response.getStatus()).append(" ");
         if (body != null) {

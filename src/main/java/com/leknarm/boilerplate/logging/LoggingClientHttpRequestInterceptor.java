@@ -20,7 +20,9 @@ public class LoggingClientHttpRequestInterceptor implements ClientHttpRequestInt
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
         logRequest(request, body);
+        log.info("Sending request traceparent: {}", request.getHeaders().get("traceparent"));
         ClientHttpResponse response = execution.execute(request, body);
+        log.info("Recieved response traceparent: {}", request.getHeaders().get("traceparent"));
         logResponse(request, response);
         return response;
     }

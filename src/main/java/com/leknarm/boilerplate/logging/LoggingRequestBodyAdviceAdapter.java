@@ -46,6 +46,7 @@ public class LoggingRequestBodyAdviceAdapter extends RequestBodyAdviceAdapter {
     }
 
     public void logRequest(HttpServletRequest request, Object body) {
+        log.info("Incoming request traceparent: {}", request.getHeaders("traceparent"));
         StringBuilder builder = new StringBuilder("Incoming request: curl -X ");
         Map<String, ?> parameters = buildParametersMap(request);
         if (parameters.isEmpty()) {
